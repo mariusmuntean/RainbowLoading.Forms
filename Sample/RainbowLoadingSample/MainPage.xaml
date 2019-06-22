@@ -29,7 +29,7 @@
                 <Setter
                     Property = "HorizontalOptions"
                     Value    = "Center" />
-                <Setter Property="FontSize" Value="Small"></Setter>
+                <Setter Property="FontSize" Value="Small" />
             </Style>
             <Style
                 TargetType = "StackLayout">

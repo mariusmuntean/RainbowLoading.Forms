@@ -1,24 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using SkiaSharp;
+﻿using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
 
 namespace RainbowLoading
 {
-    public class RainbowLoading : ContentView
+    public partial class RainbowLoading : ContentView
     {
         private string ProgressAnimationName = "ProgressAnimation";
         private string RotationAnimationName = "RotationAnimation";
-
-        private readonly List<SKColor> progressColors = new List<SKColor>
-        {
-            new SKColor(66,133,244),
-            new SKColor(219,68,55),
-            new SKColor(244,160,0),
-            new SKColor(15,157,88)
-
-        };
 
         SKPaint backgroundPaint = new SKPaint()
         {
@@ -43,15 +32,12 @@ namespace RainbowLoading
 
         SKCanvasView _canvas;
 
-        public RainbowLoading()
-        {
-            _currentColor = progressColors[_currentColorIndex];
-            progressPaint.Color = _currentColor;
-        }
-
         protected override void OnParentSet()
         {
             base.OnParentSet();
+
+            _currentColor = ProgressColors[_currentColorIndex].ToSKColor();
+            progressPaint.Color = _currentColor;
 
             _canvas = new SKCanvasView();
             _canvas.PaintSurface += PaintRainbow;
@@ -59,28 +45,6 @@ namespace RainbowLoading
 
             RunProgressAnimation();
             RunRotationAnimation();
-        }
-
-        public static readonly BindableProperty ProgressDurationProperty = BindableProperty.Create(nameof(ProgressDuration),
-            typeof(TimeSpan),
-            typeof(RainbowLoading),
-            TimeSpan.FromMilliseconds(1400));
-
-        public TimeSpan ProgressDuration
-        {
-            get => (TimeSpan)GetValue(ProgressDurationProperty);
-            set => SetValue(ProgressDurationProperty, value);
-        }
-
-        public static readonly BindableProperty RotationDurationProperty = BindableProperty.Create(nameof(RotationDuration),
-            typeof(TimeSpan),
-            typeof(RainbowLoading),
-            TimeSpan.FromMilliseconds(2000));
-
-        public TimeSpan RotationDuration
-        {
-            get => (TimeSpan)GetValue(ProgressDurationProperty);
-            set => SetValue(ProgressDurationProperty, value);
         }
 
         private void RunRotationAnimation()
@@ -111,8 +75,8 @@ namespace RainbowLoading
                 finished: (d, b) =>
                 {
                     _currentColorIndex++;
-                    _currentColorIndex = _currentColorIndex % progressColors.Count;
-                    _currentColor = progressColors[_currentColorIndex];
+                    _currentColorIndex = _currentColorIndex % ProgressColors.Count;
+                    _currentColor = ProgressColors[_currentColorIndex].ToSKColor();
                     _canvas.InvalidateSurface();
                 },
                 repeat: () => true);
@@ -127,10 +91,12 @@ namespace RainbowLoading
 
             var canvasCenter = new SKPoint(size.Width / 2, size.Height / 2);
 
+            // Clear the canvas and move the canvas center point to the viewport center
             canvas.Clear();
             canvas.Translate(canvasCenter);
 
             // Draw background as a white disc
+            backgroundPaint.Color = BackgroundColor.ToSKColor();
             canvas.DrawCircle(0, 0, size.Width / 2, backgroundPaint);
 
             // Rotate the canvas
