@@ -15,7 +15,7 @@
 A SkiaSharp implementation of the famous Android loading indicator for Xamarin.Forms.</Description>
     <Owners>Marius Muntean</Owners>
     <PackOnBuild>true</PackOnBuild>
-    <PackageId>1</PackageId>
+    <PackageId>de.marius.rainbowloading</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
