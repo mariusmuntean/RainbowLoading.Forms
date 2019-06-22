@@ -9,4 +9,7 @@
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.497661" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="RainbowLoading.xaml" />
+  </ItemGroup>
 </Project>

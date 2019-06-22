@@ -1,15 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage
-    xmlns      = "http://xamarin.com/schemas/2014/forms"
-    xmlns:x     = "http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local = "clr-namespace:RainbowLoadingSample"
-    x:Class     = "RainbowLoadingSample.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label
-            Text              = "Welcome to Xamarin.Forms!"
-            HorizontalOptions = "Center"
-            VerticalOptions   = "CenterAndExpand" />
-        <Rainbowoading />
-    </StackLayout>
+    xmlns               = "http://xamarin.com/schemas/2014/forms"
+    xmlns:x              = "http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local          = "clr-namespace:RainbowLoadingSample"
+    xmlns:rl             = "clr-namespace:RainbowLoading;assembly=RainbowLoading"
+    xmlns:ios            = "clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea = "true"
+    x:Class              = "RainbowLoadingSample.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style
+                TargetType = "rl:RainbowLoading">
+                <Setter
+                    Property = "HorizontalOptions"
+                    Value    = "Center" />
+                <Setter
+                    Property = "VerticalOptions"
+                    Value    = "Center" />
+                <Setter
+                    Property = "WidthRequest"
+                    Value    = "100" />
+                <Setter
+                    Property = "HeightRequest"
+                    Value    = "100" />
+            </Style>
+            <Style
+                TargetType = "Label">
+                <Setter
+                    Property = "HorizontalOptions"
+                    Value    = "Center" />
+                <Setter Property="FontSize" Value="Small"></Setter>
+            </Style>
+            <Style
+                TargetType = "StackLayout">
+                <Setter
+                    Property = "Margin"
+                    Value    = "10" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <FlexLayout
+        x:Name          = "MainLayout"
+        Padding         = "10"
+        BackgroundColor = "Silver"
+        Direction       = "Row"
+        FlowDirection   = "LeftToRight"
+        Wrap            = "Wrap"
+        AlignContent    = "Start"
+        AlignItems      = "Start">
+        <!-- Content Set In Code-behind File -->
+    </FlexLayout>
 </ContentPage>

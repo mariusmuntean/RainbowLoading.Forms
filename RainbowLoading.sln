@@ -75,4 +75,28 @@ Global
 		{9EA05605-2118-4FD4-A68A-99B41BB32C94} = {1CFEE7AD-0C80-4121-834C-0782A14C61ED}
 		{C750FBFC-A90D-4528-BDC4-2A3DD3914C0C} = {1CFEE7AD-0C80-4121-834C-0782A14C61ED}
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.TextStylePolicy = $2
+		$2.TabsToSpaces = True
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
+		$0.TextStylePolicy = $4
+		$4.inheritsSet = null
+		$4.scope = application/xaml+xml
+		$0.XmlFormattingPolicy = $5
+		$5.DefaultFormat = $6
+		$6.AttributesInNewLine = True
+		$6.AlignAttributes = True
+		$6.AlignAttributeValues = True
+		$6.SpacesBeforeAssignment = 1
+		$6.SpacesAfterAssignment = 1
+		$5.scope = application/xaml+xml
+		$0.TextStylePolicy = $7
+		$7.inheritsSet = null
+		$7.scope = text/x-vs
+	EndGlobalSection
 EndGlobal
