@@ -70,6 +70,27 @@ namespace RainbowLoadingSample
             sl5.Children.Add(rl5);
             sl5.Children.Add(l5);
             MainLayout.Children.Add(sl5);
+
+            var rl6 = new RainbowLoading.RainbowLoading
+            {
+                ShadowColor = GetRandomPastelColor().WithLuminosity(0.5)
+            };
+            var l6 = new Label { Text = "Custom Shadow Color" };
+            var sl6 = new StackLayout();
+            sl6.Children.Add(rl6);
+            sl6.Children.Add(l6);
+            MainLayout.Children.Add(sl6);
+
+            var rl7 = new RainbowLoading.RainbowLoading
+            {
+                HasShadow = false,
+                BackgroundColor = GetRandomPastelColor()
+            };
+            var l7 = new Label { Text = "No Shadow" };
+            var sl7 = new StackLayout();
+            sl7.Children.Add(rl7);
+            sl7.Children.Add(l7);
+            MainLayout.Children.Add(sl7);
         }
 
         private List<Color> GetListOfRandomPastelColors(int count)

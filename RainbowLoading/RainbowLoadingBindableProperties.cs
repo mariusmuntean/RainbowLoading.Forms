@@ -41,6 +41,30 @@ namespace RainbowLoading
             set => SetValue(BackgroundColorProperty, value);
         }
 
+
+        public static readonly BindableProperty ShadowColorProperty = BindableProperty.Create(nameof(ShadowColor),
+            typeof(Color),
+            typeof(RainbowLoading),
+            Color.LightGray);
+
+        public Color ShadowColor
+        {
+            get => (Color)GetValue(ShadowColorProperty);
+            set => SetValue(ShadowColorProperty, value);
+        }
+
+
+        public static readonly BindableProperty HasShadowProperty = BindableProperty.Create(nameof(HasShadow),
+            typeof(bool),
+            typeof(RainbowLoading),
+            true);
+
+        public bool HasShadow
+        {
+            get => (bool)GetValue(HasShadowProperty);
+            set => SetValue(HasShadowProperty, value);
+        }
+
         public static readonly BindableProperty ProgressColorsProperty = BindableProperty.Create(nameof(ProgressColors),
             typeof(List<Color>),
             typeof(RainbowLoading),

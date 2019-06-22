@@ -13,7 +13,7 @@ namespace RainbowLoading
         {
             Color = SKColors.White,
             IsStroke = false,
-            IsAntialias = true
+            IsAntialias = true,
         };
 
         SKPaint progressPaint = new SKPaint()
@@ -89,15 +89,28 @@ namespace RainbowLoading
             var surface = args.Surface;
             var canvas = args.Surface.Canvas;
 
-            var canvasCenter = new SKPoint(size.Width / 2, size.Height / 2);
+            var canvasCenter = new SKPoint(size.Width / 2.0f, size.Height / 2.0f);
 
             // Clear the canvas and move the canvas center point to the viewport center
             canvas.Clear();
             canvas.Translate(canvasCenter);
 
-            // Draw background as a white disc
+            // Draw background as a disc
             backgroundPaint.Color = BackgroundColor.ToSKColor();
-            canvas.DrawCircle(0, 0, size.Width / 2, backgroundPaint);
+            if (HasShadow)
+            {
+                backgroundPaint.ImageFilter = SKImageFilter.CreateDropShadow(
+                    size.Width * 0.05f,
+                    size.Height * 0.05f,
+                    size.Width * 0.1f,
+                    size.Height * 0.1f,
+                  ShadowColor.ToSKColor(),
+                  SKDropShadowImageFilterShadowMode.DrawShadowAndForeground);
+
+                canvas.Scale(0.73f, 0.73f);
+            }
+            var radius = size.Width * 0.5f; // the term backgroundDiscRadiusScale is there just to ensure the shadow will be visible
+            canvas.DrawCircle(0, 0, radius, backgroundPaint);
 
             // Rotate the canvas
             canvas.RotateDegrees((float)(_rotation * 360.0f));

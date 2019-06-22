@@ -30,6 +30,7 @@
                     Property = "HorizontalOptions"
                     Value    = "Center" />
                 <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="Gray" />
             </Style>
             <Style
                 TargetType = "StackLayout">
@@ -42,7 +43,7 @@
     <FlexLayout
         x:Name          = "MainLayout"
         Padding         = "10"
-        BackgroundColor = "Silver"
+        BackgroundColor = "White"
         Direction       = "Row"
         FlowDirection   = "LeftToRight"
         Wrap            = "Wrap"
