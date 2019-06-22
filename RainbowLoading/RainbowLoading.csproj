@@ -3,6 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceAssemblyReference>true</ProduceAssemblyReference>
+    <PackageVersion>1.0</PackageVersion>
+    <Authors>Marius Muntean</Authors>
+    <Copyright>Marius Muntean 2019</Copyright>
+    <PackageLicenseUrl>https://github.com/mariusmuntean/RainbowLoading.Forms/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/mariusmuntean/RainbowLoading.Forms</PackageProjectUrl>
+    <Summary>A SkiaSharp implementation of the famous Android loading indicator for Xamarin.Forms.</Summary>
+    <PackageTags>xamarin.forms SkiaSharp</PackageTags>
+    <Title>RainbowLoading</Title>
+    <Description>Rainbow Loading
+A SkiaSharp implementation of the famous Android loading indicator for Xamarin.Forms.</Description>
+    <Owners>Marius Muntean</Owners>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageId>1</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
